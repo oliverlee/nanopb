@@ -2,6 +2,7 @@
 #include <pb_encode.h>
 #include <pb_decode.h>
 #include "simple.pb.h"
+#include "other.pb.h"
 
 int main()
 {
@@ -9,6 +10,8 @@ int main()
     uint8_t buffer[128];
     size_t message_length;
     bool status;
+
+    OtherMessage m = OtherMessage_init_zero;
     
     /* Encode our message */
     {
@@ -65,6 +68,8 @@ int main()
         /* Print the data contained in the message. */
         printf("Your lucky number was %d!\n", (int)message.lucky_number);
     }
+
+    printf("%d\n", m.data[0].lucky_number);
     
     return 0;
 }

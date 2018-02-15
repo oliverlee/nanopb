@@ -1,0 +1,6 @@
+syntax = "proto2";
+import "simple.proto";
+
+message OtherMessage {
+    repeated SimpleMessage data = 1;
+}
